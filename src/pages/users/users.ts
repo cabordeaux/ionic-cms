@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
+import { User } from '../../models/user/user';
 import { UserProvider } from '../../providers/user/user';
+//import { }
 /**
  * Generated class for the UsersPage page.
  *
@@ -12,19 +13,45 @@ import { UserProvider } from '../../providers/user/user';
 @IonicPage()
 @Component({
   selector: 'page-users',
+
   templateUrl: 'users.html',
 })
 export class UsersPage {
 
-  constructor(
-    public navCtrl: NavController,
-    public navParams: NavParams,
-    private userProvider: UserProvider
-  ) {
-  }
+    public users: User[];
 
-  ionViewDidLoad() {
-    console.log(this.userProvider);
+    private loader: any;
+
+    constructor(
+      public navCtrl: NavController,
+      public navParams: NavParams,
+      private userProvider: UserProvider,
+      private loadingCtrl: LoadingController
+    ) {
+    }
+
+    ionViewDidLoad() {
+      this.getUsers();
+    }
+
+    public getUsers(): void {
+      this.presentLoader();
+
+      this.userProvider.getUsers().subscribe(
+        (response:any)=>{
+          this.users = response.users;
+          this.loader.dismiss();
+        }
+      );
+    }
+
+    private presentLoader(): void{
+
+      this.loader = this.loadingCtrl.create({
+        content: 'Loading...'
+    });
+
+    this.loader.present();
   }
 
 }
