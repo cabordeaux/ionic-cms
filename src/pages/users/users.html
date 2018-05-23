@@ -15,8 +15,27 @@
 
 <ion-content padding>
   <ion-list *ngIf="users">
-    <ion-item *ngFor="let user of users">{{ user.username }}</ion-item>
+    <ion-item *ngFor="let user of users"
+    (click)="toUser(user._id)"
+    >
+
+
+      {{ user.username }}
+    </ion-item>
 
   </ion-list>
+
+  <ion-fab right bottom>
+    <button ion-fab color="secondary">
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-fab>
+
+
+  <ion-fab right bottom>
+    <button ion-fab color="secondary" (click)="toCreateUser()">
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-fab>
 
 </ion-content>

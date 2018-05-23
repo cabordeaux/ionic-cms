@@ -6,6 +6,8 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { UsersPage } from '../pages/users/users';
+import { UserPage } from '../pages/user/user';
+import { UserCreatePage } from '../pages/user-create/user-create';
 import { ListPage } from '../pages/list/list';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -17,6 +19,8 @@ import { UserProvider } from '../providers/user/user';
     MyApp,
     HomePage,
     UsersPage,
+    UserPage,
+    UserCreatePage,
     ListPage
   ],
   imports: [
@@ -30,6 +34,8 @@ import { UserProvider } from '../providers/user/user';
     MyApp,
     HomePage,
     UsersPage,
+    UserPage,
+    UserCreatePage,
     ListPage
   ],
   providers: [

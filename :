@@ -1,0 +1,11 @@
+Added a users view
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Changes to be committed:
+#	new file:   src/models/user/user.ts
+#	modified:   src/pages/users/users.html
+#	modified:   src/pages/users/users.ts
+#	modified:   src/providers/user/user.ts
+#
