@@ -14,12 +14,19 @@
 
 
 <ion-content padding>
-  <ion-item *ngIf="errorMesage">{{ errorMssage }}</ion-item>
+ 
   <form [formGroup]="user" (ngSubmit)="createUser">
+
+  <ion-list>
+
+  <ion-item *ngIf="errorMesage">{{ errorMessage }}</ion-item>
+
     <ion-item>
       <ion-label floating>Username</ion-label>
       <ion-input type="text" formControlName="username"></ion-input>
     </ion-item>
+
+    <ion-item *ngIf="errors.username">{{ errors.username.message }}</ion-item>
 
     <ion-item>
         <ion-label floating>Email</ion-label>
@@ -35,7 +42,8 @@
         <ion-label floating>Last Name</ion-label>
         <ion-input type="text" formControlName="last_name"></ion-input>
     </ion-item>
-
+    </ion-list>
+    
     <button ion-button type="submit">Submit</button>
   </form>
 
