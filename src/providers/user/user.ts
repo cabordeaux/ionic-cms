@@ -38,13 +38,16 @@ export class UserProvider {
     return this.http.post<User>(this.url,user,httpOptions);
 
   }
-  public updateUser( ) {
-    console.log('Update User');
+  public updateUser(user: User ): Observable<User> {
+    return this.http.post<User>(this.url,user,httpOptions);
+
 
   }
-  public deleteUser( ) {
-    console.log('Delete User');
-
+  public deleteUser(id: string): Observable<User> {
+    return this.http.delete<User>(`${this.url}/${id}`);
   }
 }
 
+//public toUserUpdate({
+  //this.navCtrl.push(UserUpdatePage, { id: this})
+//})

@@ -1,3 +1,49 @@
-page-update {
 
+page-user-create {
+  .error {
+    color: #f53d3d;
+    /*a94442*/
+  }
+
+  .alert{
+    text-align: center;
+  }
+
+  .alert-error{
+    background: #f53d3d;
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  .hide{
+    display: none;
+  }
+
+  .input-wrapper {
+    border-bottom: 1px solid #ccc;
+  }
+
+  .has-error .input-wrapper,
+  .has-error .input-wrapper .label.label-md {
+    color: #f53d3d;
+  }
+
+  .has-error .input-wrapper{
+    border-bottom: 3px solid #f53d3d;
+  }
+
+  .input-has-focus .input-wrapper,
+  .has-error .input-wrapper .label.label-md {
+    color: #4D8CF4;
+
+  }
+
+  .input-has-focus .input-wrapper{
+     border-bottom: 3px solid #4D8CF4;
+  }
+
+  .no-lines .input-wrapper{
+    border-bottom:none;
+  }
 }

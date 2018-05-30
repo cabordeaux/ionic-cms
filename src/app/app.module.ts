@@ -1,3 +1,4 @@
+
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { ErrorHandler, NgModule } from '@angular/core';
@@ -9,12 +10,12 @@ import { UsersPage } from '../pages/users/users';
 import { UserPage } from '../pages/user/user';
 import { UserCreatePage } from '../pages/user-create/user-create';
 import { UserUpdatePage } from '../pages/user-update/user-update';
-import { ListPage } from '../pages/list/list';
+import { UserDeletePage } from '../pages/user-delete/user-delete';
+
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { UserProvider } from '../providers/user/user';
-
 
 @NgModule({
   declarations: [
@@ -24,13 +25,13 @@ import { UserProvider } from '../providers/user/user';
     UserPage,
     UserCreatePage,
     UserUpdatePage,
-    ListPage
+    UserDeletePage,
+
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    IonicModule.forRoot(MyApp)
-
+    IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -40,14 +41,14 @@ import { UserProvider } from '../providers/user/user';
     UserPage,
     UserCreatePage,
     UserUpdatePage,
-    ListPage
+    UserDeletePage,
+
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    UserProvider,
-
+    UserProvider
   ]
 })
 export class AppModule {}

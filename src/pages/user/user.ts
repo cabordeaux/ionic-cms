@@ -1,17 +1,13 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-import { Md5 } from 'ts-md5/dist/md5'
+import { Md5 } from 'ts-md5/dist/md5';
 
 import { UserProvider } from '../../providers/user/user';
 import { User } from '../../models/user/user';
 
-/**
- * Generated class for the UserPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { UserUpdatePage } from '../user-update/user-update';
+import { UserDeletePage } from '../user-delete/user-delete';
 
 @IonicPage()
 @Component({
@@ -25,8 +21,7 @@ export class UserPage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    private userProvider: UserProvider,
-    //private ts
+    private userProvider: UserProvider
   ) {
     this.getUser(this.navParams.data.id);
   }
@@ -35,12 +30,19 @@ export class UserPage {
     this.userProvider.getUser(id).subscribe(
       (response:any)=>{
         this.user = response.user;
-        this.user.gravatarUrl = 'https://www.gravatar.com/avatar'
-        +Md5.hashStr(this.user.email)
-        +'?d=mm&s=512'
+        this.user.gravatarUrl = 'https://www.gravatar.com/avatar/'
+          + Md5.hashStr(this.user.email)
+          + '?d=mm&s=512';
       }
     );
   }
+
+  public toUserUpdate(){
+    this.navCtrl.push(UserUpdatePage, { id: this.user._id });
   }
 
+  public toUserDelete(){
+    this.navCtrl.push(UserDeletePage, { id: this.user._id });
+  }
 
+}
