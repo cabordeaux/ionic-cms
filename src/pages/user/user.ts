@@ -5,6 +5,7 @@ import { Md5 } from 'ts-md5/dist/md5'
 
 import { UserProvider } from '../../providers/user/user';
 import { User } from '../../models/user/user';
+
 /**
  * Generated class for the UserPage page.
  *

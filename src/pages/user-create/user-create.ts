@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 //import { UserPage } from '../../pages/user/user';
 import { User } from '../../models/user/user';
+import {UserPage} from '../user/user';
 import { UserProvider } from '../../providers/user/user';
 
 /**
@@ -50,7 +51,7 @@ export class UserCreatePage {
 
     if(response.success === true){
       console.log('Allright!!!')
-      //this.navCtrl.push(UserPage, {id: response._id});
+      this.navCtrl.push(UserPage, {id: response.user._id});
     }
   }
 

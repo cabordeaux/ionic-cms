@@ -8,11 +8,13 @@ import { HomePage } from '../pages/home/home';
 import { UsersPage } from '../pages/users/users';
 import { UserPage } from '../pages/user/user';
 import { UserCreatePage } from '../pages/user-create/user-create';
+import { UserUpdatePage } from '../pages/user-update/user-update';
 import { ListPage } from '../pages/list/list';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { UserProvider } from '../providers/user/user';
+
 
 @NgModule({
   declarations: [
@@ -21,6 +23,7 @@ import { UserProvider } from '../providers/user/user';
     UsersPage,
     UserPage,
     UserCreatePage,
+    UserUpdatePage,
     ListPage
   ],
   imports: [
@@ -36,13 +39,15 @@ import { UserProvider } from '../providers/user/user';
     UsersPage,
     UserPage,
     UserCreatePage,
+    UserUpdatePage,
     ListPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    UserProvider
+    UserProvider,
+
   ]
 })
 export class AppModule {}
